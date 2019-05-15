@@ -1,4 +1,3 @@
-from framework.http_petstore_api.models import Pet, Category, Tag
 from framework.http_petstore_api.http_petstore_api import post_pet
 
 

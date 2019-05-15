@@ -14,3 +14,8 @@ def post_pet(request_json):
 
 def put_pet(request_json):
     return requests.put(url=f'{url}/pet', json=request_json, headers=headers)
+
+
+def get_find_by_status(status):
+    return requests.get(url=f"{url}/pet/findByStatus?status={status}", headers=headers)
+
