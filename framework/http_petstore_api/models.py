@@ -19,4 +19,3 @@ class Pet(models.Base):
     photo_urls = ListField(str)
     tags = ListField(Tag)
     status = StringField()
-

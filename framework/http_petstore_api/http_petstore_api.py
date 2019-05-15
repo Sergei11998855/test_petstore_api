@@ -18,4 +18,3 @@ def put_pet(request_json):
 
 def get_find_by_status(status):
     return requests.get(url=f"{url}/pet/findByStatus?status={status}", headers=headers)
-
