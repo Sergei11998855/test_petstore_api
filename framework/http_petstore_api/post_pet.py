@@ -2,13 +2,26 @@ from framework.http_petstore_api.models import Pet, Category, Tag
 from framework.http_petstore_api.http_petstore_api import post_pet
 
 
-def add_new_pet(pet_id, pet_name):
-    category = Category(id=1, name='test')
-    photo_urls = ['/test_url/1', '/test_url/2']
-    tags = Tag(id=1, name='test')
-    request = Pet(id=pet_id,
-                  category=category,
-                  name=pet_name,
-                  photo_urls=photo_urls,
-                  tags=[tags], status='available').to_struct()
-    return post_pet(request)
+class PostPet:
+
+    def add_new_pet(self, pet_id=1, pet_name='test_pet_name', status='available'):
+        category = self._category()
+        tags = self._tags()
+        request = {'id': pet_id,
+                   'category': category,
+                   'name': pet_name,
+                   'tags': [tags],
+                   'status': status}
+        return post_pet(request)
+
+    @staticmethod
+    def _tags(tag_id=1, name='test'):
+        tags = {'id': tag_id,
+                'name': name}
+        return tags
+
+    @staticmethod
+    def _category(category_id=1, name='test'):
+        category = {'id': category_id,
+                    'name': name}
+        return category
