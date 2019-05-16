@@ -1,4 +1,4 @@
-from framework.http_petstore_api.http_petstore_api import post_update_pet_by_id, find_pet_by_id
+from framework.http_petstore_api.http_petstore_api import post_update_pet_by_id, get_find_pet_by_id
 
 
 class TestPostUpdatePet:
@@ -9,7 +9,7 @@ class TestPostUpdatePet:
         status = 'test status'
         response = post_update_pet_by_id(pet_id, name, status)
         assert response.status_code == 200, f'Expected status-code 200, not {response.status_code}'
-        pet = find_pet_by_id(pet_id).json()
+        pet = get_find_pet_by_id(pet_id).json()
         assert pet['id'] == 1, f'pet_id not equal {pet_id}'
         assert pet['name'] == name, f'status not equal {name}'
         assert pet['status'] == status, f'status not equal {status}'
