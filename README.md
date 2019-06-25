@@ -1,4 +1,5 @@
 # test_petstore_api
+https://petstore.swagger.io
 
 - [x] POST /pet
     - [x] Check added pet for valid request
